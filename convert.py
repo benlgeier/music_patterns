@@ -17,15 +17,13 @@ if __name__ == '__main__':
 			if song[y] == song[x]:
 				song_grid[y][x] = song[x]
 
-	print(song_grid)
+	image = Image.new(mode='RGB', size=(img_size, img_size), color=(0,0,0))
 
+	for y in range(0, img_size, box_size):
+		for x in range(0, img_size, box_size):
+			if song_grid[int(y/box_size)][int(x/box_size)] != '':
+				ImageDraw.Draw(image).rectangle(
+					[x,y,x+10,y+10],(255,255,255),(0,0,0),1)
 
-	# image = Image.new(mode='RGB', size=(img_size, img_size), color=(0,0,0))
-
-	# for y in range(0, img_size, box_size):
-	# 	for x in range(0, img_size, box_size):
-	# 		ImageDraw.Draw(image).rectangle(
-	# 			[x,y,x+10,y+10],(x,y,x),(0,0,0),1)
-
-	# image.show()
+	image.show()
 
